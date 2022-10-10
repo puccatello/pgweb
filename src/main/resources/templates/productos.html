@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Spring Dreams</title>
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../css/heroic-features.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div th:include="template_admin.html::header"></div>
+ 
+<div class="container">
+
+  <h1 class="mt-4 mb-3">
+    Spring Dreams<small>Productos</small>
+  </h1>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item active">Ver Productos</li>
+  </ol>
+
+  <a class="btn btn-primary" href="#" th:href="@{/productos/productosform?id=0}"> Crear Producto</a>
+  <h2>Productos</h2>
+  <table class="table">
+    <thead>
+     <tr>
+      <th>Nombre</th>
+      <th>Categoria</th>
+      <th>Precio</th>
+      <th>Tamaño</th>
+      <th>Cantidad</th>
+      <th>Imagen</th>
+      <th>Descripción</th>
+     </tr>
+    </thead>
+    
+    <tbody>
+     <tr th:each="pr:${productos}">
+      <td th:text="${pr.nombrepro}"></td>
+      <td th:text="${pr.categoria}"></td>
+      <td th:text="${pr.precio}"></td>
+      <td th:text="${pr.tamano}"></td>
+      <td th:text="${pr.cantidad}"></td>
+      <td th:text="${pr.imagen}"></td>
+      
+      <td th:text="${pr.descripcion}"></td>
+    <td>
+        <td><a  class="btn btn-warning" href="#" th:href="@{/productos/productosform?id=__${pr.id}__}">Editar</a> </td>
+        <td><a  class="btn btn-danger" href="#" th:href="@{/productos/removeproductos?id=__${pr.id}__}">Eliminar</a> </td>
+      </tr>       
+    </tbody>
+  </table>
+
+</div>
+
+<div th:include="template_admin.html::footer"></div>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

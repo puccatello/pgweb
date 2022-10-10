@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Spring Dreams</title>
+
+
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+   <link href="../css/heroic-features.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div th:include="template_admin.html::header"></div>
+
+<div class="container">
+
+
+
+  <h1 class="mt-4 mb-3">
+    Spring Dreams <small>Productos</small>
+  </h1>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item active">Crear Productos</li>
+  </ol>
+
+  <h2>Crear Producto</h2>
+  <form action="#" th:action="@{/productos/addproductos}" th:object="${productos}" method=POST>
+    <input type="hidden" th:field="*{id}"></input>
+    Nombre: <input type="text" class="form-control" th:field="*{nombrepro}" th:value="${nombrepro}"> </input>
+    <br/>
+    Categoria: <input type="text" class="form-control" th:field="*{categoria}" th:value="${categoria}"> </input>
+    <br/>
+    Precio: <input type="text" class="form-control" th:field="*{precio}" th:value="${precio}"> </input>
+    <br/>
+    Tamaño: <input type="text" class="form-control" th:field="*{tamano}" th:value="${tamano}"></input>
+    <br/>
+    Cantidad: <input type="text" class="form-control" th:field="*{cantidad}" th:value="${cantidad}"> </input>
+    <br/>
+    <img class="card-img-top" src="//images/IMG_20220513_180539.jpg " alt="">
+    <br/>
+    Descripción: <input type="text" class="form-control" th:field="*{descripcion}" th:value="${descripcion}"></input>
+    <br/>
+    <br/>
+
+    <div class="row">
+      <div class="col-sm-2">
+        <button type="submit" class="btn btn-succes">
+          <span class="glyphicon glyphicon-saved"></span> Guardar
+        </button>
+      </div>
+      <div class="col-sm-2">
+        <button type="submit" class="btn btn-succes">
+          <span class="glyphicon glyphicon-remove"></span> Anular
+        </button>
+      </div>
+    </div>
+
+  </form>
+
+</div>
+
+<div th:include="template_admin.html::footer"></div>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

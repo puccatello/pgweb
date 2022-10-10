@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+ <title>ModificarUsuarios</title>
+ <meta charset="utf-8"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1"/>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="#" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+ <div class="jumbotron">
+  <div class="container">
+   <h1>Formulario de Productos</h1>
+   <br/>
+   <form action="#" th:action="@{/productos/addproductos}" th:object="${productos}" method=POST>
+    <input type="hidden" th:field="*{id}"></input>
+    Nombre: <input type="text" class="form-control" th:field="*{nombrepro}" th:value="${nombrepro}"> </input>
+    <br/>
+    Categoria: <input type="text" class="form-control" th:field="*{categoria}" th:value="${categoria}"> </input>
+    <br/>
+    Precio: $<input type="text" class="form-control" th:field="*{precio}" th:value="${precio}"> </input>
+    <br/>
+    Tamaño: <input type="text" class="form-control" th:field="*{tamano}" th:value="${tamano}"></input>
+    <br/>
+    Cantidad: <input type="text" class="form-control" th:field="*{cantidad}" th:value="${cantidad}"> </input>
+    <br/>
+    Imagen: <input type="text" class="form-control" th:field="*{imagen}" th:value="${imagen}"> </input>
+    <br/>
+    Descripción: <input type="text" class="form-control" th:field="*{descripcion}" th:value="${descripcion}"></input>
+    <br/>
+    <br/>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">
+     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Aceptar
+</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">
+     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Anular
+</button>
+</form>
+</div>
+</div>
+
+</body>
+</html>
